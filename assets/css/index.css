@@ -16,3 +16,96 @@ html{
     font-size: 62.5%;    
     font-family: var(--main-font);
 }
+
+/* Main Container */
+.main-container{
+    min-width: 320px;
+    max-width: 500px;
+    height: 75vh;
+    margin: 10vh auto;
+    /* background-color: red; */
+}
+
+/* Pokedex */
+.pokedex{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--SecondaryColor);
+    border-radius: 18px;
+    box-shadow: -15px 10px 1px 8px #610708;
+}
+
+/* Pokedex header */
+.pokedex__header{
+    width: 100%;
+    height: 15%;
+    position: relative;
+}
+.container-lights{
+    width: 62%;
+    height: 100%;
+    position: absolute;
+    padding: 15px;
+    background-color: var(--PrincipalColor);
+    border-radius: 18px 0 80px 0;
+    box-shadow: -5px 10px 1px #610708;
+    display: flex;
+}
+.container-bars{
+    width: 45%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    border-radius: 0 18px 0 0;
+    background-color: var(--PrincipalColor);
+}
+.bar__bottom{
+    width: 102%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--SecondaryColor);
+    border-radius: 80px 0 0 0;
+}
+.camera{
+    width: 65px;
+    height: 65px;
+    background: rgb(247,247,247);
+background: radial-gradient(circle, rgba(247,247,247,1) 0%, rgba(236,236,236,1) 6%, rgba(0,212,255,1) 87%);
+    border: 4px solid var(--just-white);
+    border-radius: 100px;
+    box-shadow: 0px 0px 5px 5px #610708;
+    position: relative;
+}
+.camera__reflection{
+    width: 20px;
+    height: 10px;
+    border-radius: 100px;
+    background-color: var(--just-white);
+    position: absolute;
+    left: calc(50% - 10px);
+    top: 4px;
+    background-color: rgb(197, 248, 255);
+}
+.light{
+    width: 18px;
+    height: 18px;
+    border-radius: 100px;
+    box-shadow: 0px 0px 5px 5px #610708;
+    margin-left: 12px;
+}
+.red{
+    background: rgb(227,110,110);
+background: radial-gradient(circle, rgba(227,110,110,1) 0%, rgba(230,81,81,1) 38%, rgba(222,65,65,1) 74%);
+}
+.yellow{
+    background: rgb(255,255,158);
+background: radial-gradient(circle, rgba(255,255,158,1) 0%, rgba(255,255,98,1) 38%, rgba(254,254,66,1) 74%);
+}
+.green{
+    background: rgb(159,238,129);
+background: radial-gradient(circle, rgba(159,238,129,1) 0%, rgba(135,240,96,1) 38%, rgba(116,237,70,1) 74%);
+}
