@@ -16,14 +16,21 @@ html{
     font-size: 62.5%;    
     font-family: var(--main-font);
 }
-
+main{
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://data.whicdn.com/images/203973635/original.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 15vh;
+}
 /* Main Container */
 .main-container{
     min-width: 320px;
     max-width: 500px;
     height: 75vh;
-    margin: 10vh auto;
-    /* background-color: red; */
+    margin: 0 auto;
 }
 
 /* Pokedex */
@@ -62,8 +69,8 @@ html{
     background-color: var(--SecondaryColor);
 }
 .camera{
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
     background: rgb(247,247,247);
 background: radial-gradient(circle, rgba(247,247,247,1) 0%, rgba(236,236,236,1) 6%, rgba(0,212,255,1) 87%);
     border: 4px solid var(--just-white);
@@ -108,14 +115,14 @@ background: radial-gradient(circle, rgba(159,238,129,1) 0%, rgba(135,240,96,1) 3
     height: 52%;
     background-color: var(--grey);
     border-radius: 18px;
-    margin: 50px auto 0;
+    margin: 40px auto 0;
     padding-top: 25px;
 }
 .pokemon-image{
     margin:0 auto;
     width: 90%;
     height: 25vh;
-    background-color: var(--just-white);
+    background-color: #f9f4cf;
     border-radius: 18px;
     border: 4px solid var(--black);
 }
@@ -182,4 +189,53 @@ background: radial-gradient(circle, rgba(159,238,129,1) 0%, rgba(135,240,96,1) 3
     transition: all .5s;
 }
 
-/* Pokedex description*/
+/* Pokedex search*/
+.pokedex__search{
+    width: 90%;
+    height: auto;
+    margin: 25px auto 0;
+    position: relative;
+}
+.pokemon__name{
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+    padding: 10px;
+    background: radial-gradient(circle, rgba(151,238,129,1) 0%, rgba(98,221,67,1) 38%, rgba(58,181,27,1) 74%);
+    border-radius: 10px;
+    border: 2px solid var(--PrincipalColor);
+    box-shadow: 0 0 1px 5px var(--PrincipalColor);
+    text-align: center;
+    font-family: var(--main-font);
+    font-size: 2rem;
+    font-weight: 400;
+}
+.option-buttons{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.button{
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-align: center;
+    color: var(--just-white);
+    width: 100px;
+    height: 50px;
+    border-radius: 100px;
+    padding: 10px;
+    box-shadow: 0px 0 2px 2px black;
+    transition: all .5s;
+}
+.button:hover{
+    box-shadow: 0px 0 5px 5px black;
+    transition: all .5s;
+}
+.search{
+    background: linear-gradient(190deg, rgba(61,220,240,1) 0%, rgba(18,186,208,1) 38%, rgba(0,152,171,1) 74%);
+}
+.random{
+    background: linear-gradient(190deg, rgba(250,161,111,1) 0%, rgba(250,139,75,1) 38%, rgba(224,94,20,1) 74%);
+}

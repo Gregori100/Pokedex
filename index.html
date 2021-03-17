@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 <body>
-    <main>
+    <main class="pene">
         <section class="main-container">
             <section class="pokedex">
                 <section class="pokedex__header">
@@ -40,11 +40,18 @@
                     </div>
                 </section>
 
-                <section class="pokedex__description">
-
+                <section class="pokedex__search">
+                    <input class="pokemon__name" type="text">
+                    <div class="option-buttons">
+                        <a href="#" class="search button">Búsqueda</a>
+                        <a href="#" class="random button">Aleatorio</a>
+                    </div>
                 </section>
             </section>
         </section>
     </main>
+
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/pokedex.js"></script>
 </body>
 </html>
