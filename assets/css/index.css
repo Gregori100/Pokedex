@@ -105,7 +105,7 @@ background: radial-gradient(circle, rgba(159,238,129,1) 0%, rgba(135,240,96,1) 3
 .pokedex__pokemon{
     width: 90%;
     min-width: 300px;
-    height: 50%;
+    height: 52%;
     background-color: var(--grey);
     border-radius: 18px;
     margin: 50px auto 0;
@@ -141,15 +141,45 @@ background: radial-gradient(circle, rgba(159,238,129,1) 0%, rgba(135,240,96,1) 3
     box-shadow: 0 0px 5px 3px var(--warm-black);
     transition: all 0.3s;
 }
-.speaker{
+.pokemon__number{
+    padding: 8px;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--just-white);
+    background-color: var(--warm-black);
+    border: 5px solid #00645c;
+    border-radius: 10px;
+}
+.arrows{
     width: 65px;
-    height: 25px;
+    height: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 4px;
-    row-gap: 5px;
-    
+    column-gap: 4px;    
 }
-.speaker__color{
-    background-color: var(--warm-black);
+.arrow__left{
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/chevron-left.png');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    cursor: pointer;
+    transition: all .5s;
 }
+.arrow__left:hover{
+    opacity: .5;
+    transition: all .5s;
+}
+.arrow__right{
+    background-image: url('https://img.icons8.com/ios-filled/50/000000/chevron-right.png');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+    cursor: pointer;
+    transition: all .5s;
+}
+.arrow__right:hover{
+    opacity: .5;
+    transition: all .5s;
+}
+
+/* Pokedex description*/
