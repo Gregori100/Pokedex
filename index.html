@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 <body>
-    <main class="pene">
+    <main>
         <section class="main-container">
             <section class="pokedex">
                 <section class="pokedex__header">
@@ -28,30 +28,29 @@
 
                 <section class="pokedex__pokemon">
                     <div class="pokemon-image">
-
+                        <img src="" alt="" id="pokemon">
                     </div>
                     <div class="items-image">
                         <a class="pokemon__random red" href="#"></a>
                         <p class="pokemon__number">001</p>
                         <div class="arrows">
-                            <div class="arrow__left"></div>
-                            <div class="arrow__right"></div>
+                            <div class="arrow__left" id="arrowLeft"></div>
+                            <div class="arrow__right" id="arrowRight"></div>
                         </div>
                     </div>
                 </section>
 
                 <section class="pokedex__search">
-                    <input class="pokemon__name" type="text">
+                    <input id="pokemon_name" class="pokemon__name" type="text" value="bulbasaur">
                     <div class="option-buttons">
-                        <a href="#" class="search button">Búsqueda</a>
-                        <a href="#" class="random button">Aleatorio</a>
+                        <a href="#" class="search button" id="search">Búsqueda</a>
+                        <a href="#" class="random button" id="random">Aleatorio</a>
                     </div>
                 </section>
             </section>
         </section>
     </main>
 
-    <script src="./assets/js/index.js"></script>
-    <script src="./assets/js/pokedex.js"></script>
+    <script type="module" src="./assets/js/index.js"></script>
 </body>
 </html>
