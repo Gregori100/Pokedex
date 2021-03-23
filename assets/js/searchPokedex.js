@@ -31,7 +31,20 @@ class searchPokedex{
             for (let index = 0; index < this.NumberOfPokemon; index++) {                
                 Promises.push(this.getPokemon(index + 1))
             }
-            const pokemon = await Promise.all(Promises)
+
+            const promise_resolution = await Promise.all(Promises)
+
+            const pokemon = promise_resolution.map(data => ({
+                name: data.name,
+                id: data.id,
+                image: data.sprites.other['official-artwork'].front_default,
+                type: data.types,
+                abilities: data.abilities,
+                height: data.height,
+                weight: data.weight,
+            }))
+            // console.log(promise_resolution)
+            //console.log(pokemon)
             return pokemon
         } catch (err) {
             console.log('Ningún pokemon encontrado uwu')

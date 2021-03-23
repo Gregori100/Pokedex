@@ -26,6 +26,10 @@ class Pokedex{
         this.pokemonName = document.getElementById('pokemon_name'),
         this.typeBackground = document.querySelector('.pokemon-image'),
         this.pokemonNumber = document.querySelector('.pokemon__number'),
+        this.pokemonInfoLeft = document.querySelectorAll('.pokemon-info__left > p')
+        this.pokemonInfoRight = document.querySelectorAll('.pokemon-info__right > p')        
+        this.imageModal = document.querySelector('.image__modal > img')
+        this.nameModal = document.querySelector('.modal__body > h2')
         this.AllPokemons = AllPokemons
     }
 
@@ -35,12 +39,27 @@ class Pokedex{
      */
     assignValues = async (Pokemon) =>{
         try{    
-            this.pokemonImage.src = await Pokemon[0].sprites.other['official-artwork'].front_default
-            this.pokemonName.value = await Pokemon[0].name
-            this.pokemonNumber.innerHTML = await Pokemon[0].id
-            this.typeBackground.style.backgroundColor = await this.Colores[Pokemon[0].types['0'].type.name]
+            this.pokemonInfoRight[0].innerHTML = ''
+            this.pokemonInfoRight[1].innerHTML = ''
+            this.pokemonImage.src = Pokemon[0].image
+            this.pokemonName.value = Pokemon[0].name
+            this.pokemonNumber.innerHTML = Pokemon[0].id
+            this.typeBackground.style.backgroundColor = this.Colores[Pokemon[0].type[0].type.name]
+
+            this.pokemonInfoLeft[0].innerHTML = Pokemon[0].height
+            this.pokemonInfoLeft[1].innerHTML = Pokemon[0].weight    
+
+            this.imageModal.src = Pokemon[0].image
+            this.nameModal.innerHTML = Pokemon[0].name
+
+            for (let index = 0; index < Pokemon[0].type.length; index++) {
+                this.pokemonInfoRight[0].innerHTML += `<span class= "type ${Pokemon[0].type[index].type.name}" >${Pokemon[0].type[index].type.name}</span>`
+            }
+            for (let index = 0; index < Pokemon[0].type.length; index++) {
+                this.pokemonInfoRight[1].innerHTML += `<span>${Pokemon[0].abilities[index].ability.name}</span>`
+            }
         }catch (err){
-            console.log('Ningun pokemon encontrado boludo',err)
+            console.log('Ningun pokemon encontrado',err)
         }
     }
     
