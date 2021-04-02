@@ -1,7 +1,7 @@
 class Pokedex{
     constructor(AllPokemons){
-        this.LAST_POKEMON = 899,
-        this.FIRST_POKEMON = 0,
+        this.LAST_POKEMON = 898,
+        this.FIRST_POKEMON = 1,
         this.Colores = {
             bug: '#afbf28',
             dark: '#513c2f',
@@ -37,25 +37,28 @@ class Pokedex{
      *  Asigna los valores de la 'data' a los elementos HTML
      *  @Pokemon {json} 
      */
-    assignValues = async (Pokemon) =>{
+    assignValues = (Pokemon) =>{
         try{    
-            this.pokemonInfoRight[0].innerHTML = ''
-            this.pokemonInfoRight[1].innerHTML = ''
+            // Valores de la pokedex
             this.pokemonImage.src = Pokemon[0].image
             this.pokemonName.value = Pokemon[0].name
             this.pokemonNumber.innerHTML = Pokemon[0].id
             this.typeBackground.style.backgroundColor = this.Colores[Pokemon[0].type[0].type.name]
-
+            
+            // Valores del modal
+            this.pokemonInfoRight[0].innerHTML = ''
+            this.pokemonInfoRight[1].innerHTML = ''
             this.pokemonInfoLeft[0].innerHTML = Pokemon[0].height
             this.pokemonInfoLeft[1].innerHTML = Pokemon[0].weight    
 
             this.imageModal.src = Pokemon[0].image
             this.nameModal.innerHTML = Pokemon[0].name
 
+            // Mostrar el tipo de pokemon y sus habilidades
             for (let index = 0; index < Pokemon[0].type.length; index++) {
                 this.pokemonInfoRight[0].innerHTML += `<span class= "type ${Pokemon[0].type[index].type.name}" >${Pokemon[0].type[index].type.name}</span>`
             }
-            for (let index = 0; index < Pokemon[0].type.length; index++) {
+            for (let index = 0; index < Pokemon[0].abilities.length; index++) {
                 this.pokemonInfoRight[1].innerHTML += `<span>${Pokemon[0].abilities[index].ability.name}</span>`
             }
         }catch (err){
@@ -85,7 +88,7 @@ class Pokedex{
      *  Reduce en 1 al índice actual del pokemon y posteriormente actualiza los datos del pokemon mostrado
      */
     subtractionNumber = () =>{
-        parseInt(this.pokemonNumber.innerHTML)-1 === this.FIRST_POKEMON ? this.pokemonNumber.innerHTML = this.LAST_POKEMON : false
+        parseInt(this.pokemonNumber.innerHTML) === this.FIRST_POKEMON ? this.pokemonNumber.innerHTML = this.LAST_POKEMON + 1: false
         let Pokemon = this.AllPokemons.filter(id => {
             return id.id === parseInt(this.pokemonNumber.innerHTML)-1
         })
@@ -97,7 +100,7 @@ class Pokedex{
      *  Aumenta en 1 al índice actual del pokemon y posteriormente actualiza los datos del pokemon mostrado
      */
     addNumber = () =>{
-        parseInt(this.pokemonNumber.innerHTML)+1 === this.LAST_POKEMON ? this.pokemonNumber.innerHTML = this.FIRST_POKEMON : false
+        parseInt(this.pokemonNumber.innerHTML) === this.LAST_POKEMON ? this.pokemonNumber.innerHTML = this.FIRST_POKEMON - 1: false
         let Pokemon = this.AllPokemons.filter(id => {
             return id.id === parseInt(this.pokemonNumber.innerHTML)+1
         })
@@ -109,8 +112,7 @@ class Pokedex{
      *  Genera un numero aleatorio y posteriormente actualiza los datos del pokemon mostrado
      */
     randomPokemon = () =>{
-        let random = 0
-        random = Math.floor(Math.random() * (this.LAST_POKEMON - this.FIRST_POKEMON)) + this.FIRST_POKEMON;
+        let random = Math.floor(Math.random() * (this.LAST_POKEMON - this.FIRST_POKEMON)) + this.FIRST_POKEMON;
         let Pokemon = this.AllPokemons.filter(id => {
             return id.id === random
         })

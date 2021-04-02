@@ -27,6 +27,8 @@ document.getElementById('random').addEventListener('click',()=>{
 
 POKEDEX.searchPokemon();
 
+
+// Inicializar Acciones del Modal
 let modal = document.querySelector('.modal')
 let modalC = document.querySelector('.modal-container')
 

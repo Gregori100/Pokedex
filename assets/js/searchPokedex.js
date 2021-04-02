@@ -1,6 +1,6 @@
 class searchPokedex{
     constructor(){
-        this.NumberOfPokemon = 898
+        this.NumberMaxOfPokemon = 898
     }
 
     /**
@@ -10,8 +10,8 @@ class searchPokedex{
      * @returns {json}
      */
     async getPokemon(id = 1){
-        id === 184 ? id = 'azumarill' : false
-        id === 568 ? id = 'trubbish' : false
+        id === 138 ? id = 'omanyte' : false
+        id === 145 ? id = 'zapdos' : false
         try {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
             const data = await response.json()
@@ -28,13 +28,13 @@ class searchPokedex{
     async getAllPokemon(){
         try {
             const Promises = []
-            for (let index = 0; index < this.NumberOfPokemon; index++) {                
-                Promises.push(this.getPokemon(index + 1))
+            for (let index = 1; index <= this.NumberMaxOfPokemon; index++) {                
+                Promises.push(this.getPokemon(index))
             }
 
             const promise_resolution = await Promise.all(Promises)
 
-            const pokemon = promise_resolution.map(data => ({
+            const AllPokemons = promise_resolution.map(data => ({
                 name: data.name,
                 id: data.id,
                 image: data.sprites.other['official-artwork'].front_default,
@@ -44,10 +44,10 @@ class searchPokedex{
                 weight: data.weight,
             }))
             // console.log(promise_resolution)
-            //console.log(pokemon)
-            return pokemon
+            //console.log(AllPokemons)
+            return AllPokemons
         } catch (err) {
-            console.log('Ningún pokemon encontrado uwu')
+            console.log('Ningún pokemon encontrado uwu',err)
         }
     }
 }
